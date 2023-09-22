@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.IDConstants;
 import frc.robot.Constants.OperatorConstants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
 
 
   private RobotContainer m_robotContainer;
-  private final TalonSRX m_leftFrontDrive = new TalonSRX(IDConstants.FrontLeftDriveID);
+  private final TalonFX m_leftFrontDrive = new TalonFX(IDConstants.FrontLeftDriveID);
   private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
   
 
