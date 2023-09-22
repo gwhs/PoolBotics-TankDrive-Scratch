@@ -28,7 +28,6 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
   private final TalonSRX m_leftFrontDrive = new TalonSRX(IDConstants.FrontLeftDriveID);
   private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
-  private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
   
 
 
