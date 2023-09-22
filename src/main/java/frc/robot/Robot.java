@@ -28,6 +28,9 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
   private final TalonFX m_leftFrontDrive = new TalonFX(IDConstants.FrontLeftDriveID);
   private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
+  //Continue initializing objects for every motor. - Chris
+  //Look at Kyle to relate control bindings to motor movemment:
+  //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
   
 
 
