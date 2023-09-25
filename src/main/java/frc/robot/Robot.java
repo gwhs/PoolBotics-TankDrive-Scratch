@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
 
 
   private Command m_autonomousCommand;
-
+  private DifferentialDrive m_myRobot;
 
   private RobotContainer m_robotContainer;
   private final TalonFX m_leftFrontDrive = new TalonFX(IDConstants.FrontLeftDriveID);
