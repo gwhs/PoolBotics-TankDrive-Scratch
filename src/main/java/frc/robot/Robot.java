@@ -12,6 +12,7 @@ import frc.robot.Constants.IDConstants;
 import frc.robot.Constants.OperatorConstants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -34,7 +35,6 @@ public class Robot extends TimedRobot {
   private final TalonSRX m_leftBackSteer = new TalonSRX(IDConstants.BackLeftSteerID);
   private final TalonFX m_rightBackDrive = new TalonFX(IDConstants.BackRightDriveID);
   private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID);
-  //Continue initializing objects for every motor. - Chris
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
   
@@ -71,7 +71,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+
+  }
 
   @Override
   public void disabledPeriodic() {}
@@ -104,7 +106,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    
+  }
 
   @Override
   public void testInit() {
