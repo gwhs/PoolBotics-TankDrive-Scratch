@@ -28,6 +28,12 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
   private final TalonFX m_leftFrontDrive = new TalonFX(IDConstants.FrontLeftDriveID);
   private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
+  private final TalonFX m_rightFrontDrive = new TalonFX(IDConstants.FrontRightDriveID);
+  private final TalonSRX m_rightFrontSteer = new TalonSRX(IDConstants.FrontRightSteerID);
+  private final TalonFX m_leftBackDrive = new TalonFX(IDConstants.BackLeftDriveID);
+  private final TalonSRX m_leftBackSteer = new TalonSRX(IDConstants.BackLeftSteerID);
+  private final TalonFX m_rightBackDrive = new TalonFX(IDConstants.BackRightDriveID);
+  private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID);
   //Continue initializing objects for every motor. - Chris
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
