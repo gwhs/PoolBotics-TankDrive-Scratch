@@ -25,12 +25,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
  * project.
  */
 public class Robot extends TimedRobot {
-public Robot() {
-  m_myRobot = new DifferentialDrive(m_leftFrontDrive, m_rightFrontDrive);
-}
 
   private Command m_autonomousCommand;
-  private DifferentialDrive m_myRobot;
 
   private RobotContainer m_robotContainer;
   private final WPI_TalonFX m_leftFrontDrive = new WPI_TalonFX(IDConstants.FrontLeftDriveID);
@@ -43,6 +39,7 @@ public Robot() {
   private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID);
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
+  DifferentialDrive m_myRobot = new DifferentialDrive(m_leftFrontDrive, m_rightFrontDrive);
   
 
 
