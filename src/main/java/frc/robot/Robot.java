@@ -11,8 +11,12 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.IDConstants;
 import frc.robot.Constants.OperatorConstants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+
+// import edu.wpi.first.wpilibj.SpeedControllerGroup;
+// import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,19 +25,21 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  * project.
  */
 public class Robot extends TimedRobot {
-
+public Robot() {
+  m_myRobot = new DifferentialDrive(m_leftFrontDrive, m_rightFrontDrive);
+}
 
   private Command m_autonomousCommand;
   private DifferentialDrive m_myRobot;
 
   private RobotContainer m_robotContainer;
-  private final TalonFX m_leftFrontDrive = new TalonFX(IDConstants.FrontLeftDriveID);
+  private final WPI_TalonFX m_leftFrontDrive = new WPI_TalonFX(IDConstants.FrontLeftDriveID);
   private final TalonSRX m_leftFrontSteer = new TalonSRX(IDConstants.FrontLeftSteerID);
-  private final TalonFX m_rightFrontDrive = new TalonFX(IDConstants.FrontRightDriveID);
+  private final WPI_TalonFX m_rightFrontDrive = new WPI_TalonFX(IDConstants.FrontRightDriveID);
   private final TalonSRX m_rightFrontSteer = new TalonSRX(IDConstants.FrontRightSteerID);
-  private final TalonFX m_leftBackDrive = new TalonFX(IDConstants.BackLeftDriveID);
+  private final WPI_TalonFX m_leftBackDrive = new WPI_TalonFX(IDConstants.BackLeftDriveID);
   private final TalonSRX m_leftBackSteer = new TalonSRX(IDConstants.BackLeftSteerID);
-  private final TalonFX m_rightBackDrive = new TalonFX(IDConstants.BackRightDriveID);
+  private final WPI_TalonFX m_rightBackDrive = new WPI_TalonFX(IDConstants.BackRightDriveID);
   private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID);
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
@@ -107,7 +113,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    
+    m_myRobot.arcadeDrive(m_XboxController.getLeftY()*1, m_XboxController.getLeftX()*.9);
   }
 
   @Override
