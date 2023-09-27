@@ -13,7 +13,7 @@ import frc.robot.Constants.OperatorConstants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 // import edu.wpi.first.wpilibj.SpeedControllerGroup;
 // import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -26,7 +26,12 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
  */
 public class Robot extends TimedRobot {
 
+  public Robot() {
+    m_myRobot = new DifferentialDrive(m_leftFrontDrive, m_rightFrontDrive);
+  }
+
   private Command m_autonomousCommand;
+  private DifferentialDrive m_myRobot;
 
   private RobotContainer m_robotContainer;
   private final WPI_TalonFX m_leftFrontDrive = new WPI_TalonFX(IDConstants.FrontLeftDriveID);
@@ -36,12 +41,15 @@ public class Robot extends TimedRobot {
   private final WPI_TalonFX m_leftBackDrive = new WPI_TalonFX(IDConstants.BackLeftDriveID);
   private final TalonSRX m_leftBackSteer = new TalonSRX(IDConstants.BackLeftSteerID);
   private final WPI_TalonFX m_rightBackDrive = new WPI_TalonFX(IDConstants.BackRightDriveID);
-  private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID);
+  private final TalonSRX m_rightBackSteer = new TalonSRX(IDConstants.BackRightSteerID); 
+
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
-  DifferentialDrive m_myRobot = new DifferentialDrive(m_leftFrontDrive, m_rightFrontDrive);
-  
 
+  MotorControllerGroup leftMotors = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive, m_leftFrontSteer, m_leftBackSteer);
+
+  //MotorControllerGroup rightMotors = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive, m_rightFrontSteer, m_rightBackSteer);
+  //DifferentialDrive differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
 
   private final XboxController m_XboxController = new XboxController(OperatorConstants.kDriverControllerPort);
 
@@ -54,6 +62,10 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+  }
+
+  private DifferentialDrive newDifferentialDrive(SpeedControllerGroup leftMotors2, SpeedControllerGroup rightMotors2) {
+    return null;
   }
 
   /**
