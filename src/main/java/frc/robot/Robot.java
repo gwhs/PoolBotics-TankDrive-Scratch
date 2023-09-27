@@ -47,9 +47,9 @@ public class Robot extends TimedRobot {
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
 
   MotorControllerGroup leftMotors = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive);
+  MotorControllerGroup rightMotors = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive);
 
-  //MotorControllerGroup rightMotors = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive, m_rightFrontSteer, m_rightBackSteer);
-  //DifferentialDrive differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+  DifferentialDrive m_robot = new DifferentialDrive(leftMotors, rightMotors);
 
   private final XboxController m_XboxController = new XboxController(OperatorConstants.kDriverControllerPort);
 
@@ -122,7 +122,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_myRobot.arcadeDrive(m_XboxController.getLeftY()*1, m_XboxController.getLeftX()*.9);
+    m_robot.tankDrive(m_XboxController.getLeftY()*.5, m_XboxController.getLeftX()*5);
   }
 
   @Override
