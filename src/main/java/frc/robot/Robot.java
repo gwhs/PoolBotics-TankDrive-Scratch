@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
 
-  MotorControllerGroup leftMotors = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive, m_leftFrontSteer, m_leftBackSteer);
+  MotorControllerGroup leftMotors = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive);
 
   //MotorControllerGroup rightMotors = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive, m_rightFrontSteer, m_rightBackSteer);
   //DifferentialDrive differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
