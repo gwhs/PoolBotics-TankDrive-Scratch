@@ -46,10 +46,11 @@ public class Robot extends TimedRobot {
   //Look at Kyle to relate control bindings to motor movemment:
   //https://github.com/gwhs/KYLE_ROBOTICS_2021/tree/main
 
-  MotorControllerGroup leftMotors = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive);
-  MotorControllerGroup rightMotors = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive);
+  MotorControllerGroup leftGroup = new MotorControllerGroup(m_leftFrontDrive, m_leftBackDrive);
+  MotorControllerGroup rightGroup = new MotorControllerGroup(m_rightFrontDrive, m_rightBackDrive);
+ 
 
-  DifferentialDrive m_robot = new DifferentialDrive(leftMotors, rightMotors);
+  DifferentialDrive m_robot = new DifferentialDrive(leftGroup, rightGroup);
 
   private final XboxController m_XboxController = new XboxController(OperatorConstants.kDriverControllerPort);
 
@@ -62,10 +63,6 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-  }
-
-  private DifferentialDrive newDifferentialDrive(SpeedControllerGroup leftMotors2, SpeedControllerGroup rightMotors2) {
-    return null;
   }
 
   /**
@@ -122,7 +119,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_robot.tankDrive(m_XboxController.getLeftY()*.5, m_XboxController.getLeftX()*5);
+    m_robot.tankDrive(m_XboxController.getLeftY()*0.5, m_XboxController.getRightY()*0.5);
   }
 
   @Override
